@@ -85,4 +85,8 @@ Para subir as imagens em outro ambiente:
 docker login
 docker-compose pull
 ```
+2. Subir as imagens com docker-compose:
+```bash
+docker-compose up
+```
 
