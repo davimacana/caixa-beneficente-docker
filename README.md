@@ -39,7 +39,7 @@ Package                      Version
 
 - **Dockerfile Backend:** [Dockerfile](https://github.com/davimacana/caixa-beneficente-backend/blob/feature/container-docker/Dockerfile)
 
-Para gerar o build do frontend:
+Para gerar o build do backend:
 1. Navegue até a raiz do projeto `caixa-beneficente-backend`.
 2. Execute o comando: `mvn clean package`.
 
@@ -64,6 +64,8 @@ docker build -t caixa-beneficente-backend:1.0.0 .
 ```bash
 docker build -t caixa-beneficente-frontend:1.0.0 .
 ```
+
+Obs. lembrar de incremetar as tags ou usar lasted
 
 #### Tageamento e Push da imagem para o registry:
 Após as imagens criadas e testadas é feito o tageamento e push da imagem para o regitry.
