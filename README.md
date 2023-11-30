@@ -92,3 +92,7 @@ docker-compose pull
 docker-compose up
 ```
 
+#### DATABASE:
+Obs.: Há um arquivo sql que é para restauração do banco, quando subir o container ele vai restaurar esses dados.
+
+Lembrar sobrescrever o arquivo de backup sempre que fizer alteração na carga de dados. 
