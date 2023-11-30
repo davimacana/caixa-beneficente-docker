@@ -54,14 +54,35 @@ OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 ```
 
 #### Construir a Imagem:
-
 Após gerar os builds, construa as imagens Docker usando os seguintes comandos:
-1. Imagem Backend:
+1. Build imagem Backend:
 ```bash
 docker build -t caixa-beneficente-backend:1.0.0 .
 ```
 
-3. Imagem Frontend:
+2. Build imagem Frontend:
 ```bash
 docker build -t caixa-beneficente-frontend:1.0.0 .
 ```
+
+#### Tageamento e Push da imagem para o registry:
+Após as imagens criadas e testadas é feito o tageamento e push da imagem para o regitry.
+1. Tag e Push imagem Frontend:
+```bash
+docker tag caixa-beneficente-backend:1.0.0 davimacana/caixa-beneficente-backend:1.0.0
+docker push davimacana/caixa-beneficente-backend:1.0.0
+```
+2. Tag e Push imagem Frontend:
+```bash
+docker tag caixa-beneficente-frontend:1.0.0 davimacana/caixa-beneficente-frontend:1.0.0
+docker push davimacana/caixa-beneficente-frontend:1.0.0
+```
+
+#### Pull da imagem para no registry:
+Para subir as imagens em outro ambiente:
+1. Pull das imagens:
+```bash
+docker login
+docker-compose pull
+```
+
