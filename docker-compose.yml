@@ -1,0 +1,38 @@
+version: '3.8'
+
+networks:
+  caixa-beneficente-network:
+
+services:
+  caixa-beneficente-frontend:
+    build:
+      context: ..\caixa-beneficente-frontend
+      dockerfile: Dockerfile
+    image: caixa-beneficente-frontend:1.0.0
+    ports:
+      - 4200:80
+    networks:
+      - caixa-beneficente-network
+  caixa-beneficente-database:
+    image: postgres
+    env_file:
+      - .env
+    ports:
+      - "5433:5432"
+    volumes:
+      - ..\caixa-beneficente-database\backup.sql:/docker-entrypoint-initdb.d/backup.sql
+    networks:
+      - caixa-beneficente-network
+  caixa-beneficente-backend:
+    build:
+      context: ..\caixa-beneficente-backend
+      dockerfile: Dockerfile
+    image: caixa-beneficente-backend:1.0.0
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    networks:
+      - caixa-beneficente-network
+    depends_on:
+      - caixa-beneficente-database
